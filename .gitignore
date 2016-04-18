@@ -1,0 +1,40 @@
+# Ignore build directory
+build/
+# Ignore old generated css directory
+css/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# ignore other cache
+*.cache
+
+# phpmyadmin directory
+phpmyadmin/
+
+# Sublime stuff
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+*.sublime-project
+
+# sftp configuration file
+sftp-config.json
+# Config files
+config.json
+php/connection.php
