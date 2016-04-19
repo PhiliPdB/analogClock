@@ -1,0 +1,124 @@
+body, html {
+	height: 100%;
+}
+
+body {
+	height: calc(100% - 16px);
+	margin: 8px;
+}
+
+#clock {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	position: relative;
+	background: white;
+	box-shadow: inset 0 0 10px gray;
+	border: 0 solid gray;
+	margin: 0 auto;
+}
+
+.outer::before, .outer::after, #marker {
+	content: "";
+	position: absolute;
+	width: 8px;
+	height: 100%;
+	background: black;
+	z-index: 0;
+	left: 50%;
+	margin-left: -4px;
+	top: 0;
+}
+
+.outer::after {
+	transform: rotate(90deg);
+}
+
+#marker {
+	background: gray;
+	width: 6px;
+	margin-left: -3px;
+}
+
+.marker17 {
+	transform: rotate(30deg);
+}
+
+.marker28 {
+	transform: rotate(60deg);
+}
+
+.marker410 {
+	transform: rotate(120deg);
+}
+
+.marker511 {
+	transform: rotate(150deg);
+}
+
+.inner {
+	position: relative;
+	width: 88%;
+	height: 88%;
+	background: white;
+	border-radius: 50%;
+	z-index: 100;
+	left: 6%;
+	top: 6%;
+
+	&::before {
+		content: "";
+		width: 18px;
+		height: 18px;
+		border-radius: 9px;
+		margin-left: -9px;
+		margin-top: -9px;
+		background: black;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		box-shadow: 0 0 30px blue;
+		z-index: 200;
+	}
+
+	&::after {
+		content: "QUARTZ";
+		position: absolute;
+		width: 100%;
+		font: normal 0.8em Courier;
+		color: gray;
+		text-align: center;
+		top: 85%;
+	}
+}
+
+#hand, #hand.hour {
+	position: absolute;
+	width: 4px;
+	height: 30%;
+	top: 20%;
+	left: 50%;
+	margin-left: -2px;
+	background: black;
+	transform: rotate(0deg);
+	transform-origin: bottom;
+	z-index: 110;
+	box-shadow: 0 0 3px gray;
+}
+
+#hand.minute {
+	height: 45%;
+	top: 5%;
+	width: 5px;
+	margin-left: -2.5px;
+	z-index: 120;
+}
+
+#hand.second {
+	height: 50%;
+	width: 2px;
+	margin-left: -1px;
+	top: 0;
+	background: red;
+	z-index: 130;
+}
