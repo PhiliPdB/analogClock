@@ -1,18 +1,17 @@
 // Analog Clock
 // By: Philip de Bruin
-// Last edit: 12/03/2015
 
 // Abstract browser differences with requestAnimationFrame, with a fallback to setTimeout
 window.requestAnimationFrame = window.requestAnimationFrame
-							   || window.mozRequestAnimationFrame
-							   || window.webkitRequestAnimationFrame
-							   || window.msRequestAnimationFrame
-							   || function(callback){setTimeout(callback, 60)};
+							|| window.mozRequestAnimationFrame
+							|| window.webkitRequestAnimationFrame
+							|| window.msRequestAnimationFrame
+							|| function(callback) {setTimeout(callback, 1000 / 60)};
 
-var clock = document.getElementById("clock"),
-	hour = document.getElementsByClassName("hour"),
-	minute = document.getElementsByClassName("minute"),
-	second = document.getElementsByClassName("second");
+const clock = document.getElementById("clock");
+const hour = document.getElementsByClassName("hour");
+const minute = document.getElementsByClassName("minute");
+const second = document.getElementsByClassName("second");
 
 window.onload = resizeClock;
 window.onresize = resizeClock;
@@ -28,13 +27,13 @@ function resizeClock() {
 }
 
 function updateClock() {
-	var time = new Date(),
-		hourDeg = (time.getHours() + time.getMinutes() / 60) / 12 * 360,
-		minuteDeg = (time.getMinutes() + time.getSeconds() / 60) / 60 * 360,
-		secondDeg = (time.getSeconds() + time.getMilliseconds() / 1000) / 60 * 360;
-	hour[0].style.transform = "rotate(" + hourDeg + "deg)";
-	minute[0].style.transform = "rotate(" + minuteDeg + "deg)";
-	second[0].style.transform = "rotate(" + secondDeg + "deg)";
+	const time = new Date();
+	const hourDeg = (time.getHours() + time.getMinutes() / 60) / 12 * 360;
+	const minuteDeg = (time.getMinutes() + time.getSeconds() / 60) / 60 * 360;
+	const secondDeg = (time.getSeconds() + time.getMilliseconds() / 1000) / 60 * 360;
+	hour[0].style.transform = `rotate(${hourDeg}deg)`;
+	minute[0].style.transform = `rotate(${minuteDeg}deg)`;
+	second[0].style.transform = `rotate(${secondDeg}deg)`;
 	requestAnimationFrame(updateClock);
 };
 
